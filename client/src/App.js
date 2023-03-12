@@ -9,12 +9,14 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home.js';
 import TokenScreen from './pages/Token.js';
 import Dashboard from './pages/Dashboard';
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 
 function App() {
   return (
     <div className="App">
       {/* <Web3Button /> */}
+      {/* <ConnectButton/> */}
 
       <div className="sm:flex hidden mr-10 relative">
         <Sidebar />
@@ -23,24 +25,12 @@ function App() {
 
       <div className="content">
         <Navbar />
-        
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/dashboard" element={<Dashboard/>}/>
-            <Route path="/token" element={<TokenScreen />}/>
-            {/* <Route path="/token" element={<TokenScreen />}/>
-            <Route path="/create-token" element={<CreateToken/>}/>
-            <Route path="/token-details/:id" element={<TokenDetails/>}/>
-            <Route path="/crowdsale" element={<CrowdsaleScreen />}/>
-            <Route path="/crowdsale-details/:id" element={<CrowdsaleDetails />} />
-            <Route path='/create-crowdsale' element={<CreateCrowdsale />} />
-            <Route path="/dao" element={<DAOScreen />} />
-            <Route path="/dao-details/:id" element={<DAODetails />}/>
-            <Route path="/create-dao" element={<CreateDAO />}/>
-            <Route path="/create-proposal" element={<CreateProposal />}/>
-            <Route path="dao-settings" element={<DAOSettings/>}/> */}
-          </Routes>
-        
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/token" element={<TokenScreen />} />
+        </Routes>
       </div>
 
       {/* <header style={{fontSize: '20px', fontStyle: 'bold'}}>
