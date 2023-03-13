@@ -818,8 +818,8 @@
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": false,
-			"runs": 200
+			"enabled": true,
+			"runs": 2000000000
 		},
 		"remappings": []
 	},
@@ -953,11 +953,11 @@
 			]
 		},
 		"ERC20Token.sol": {
-			"keccak256": "0x3778f8b484cfe2dca23d6dbcd1a5414e54960cdc208bc2891018165976ec779b",
+			"keccak256": "0xeda8225b4a34f63f289fb6d4e874d60db9e98c181f6c76515212582199e5c74e",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://e2c1043b9e2af52e5c6bb10168a37fa1b2241c8685213acd7ab99b627d2ed80c",
-				"dweb:/ipfs/QmSAgRKhdvC9M5reTHYzZWN2hYQFvRKnez9sAK9rAr8pv9"
+				"bzz-raw://1f345a8452885fe34ac07a2eeca4d3cf8d04e383268bfa70192132ec8d95def4",
+				"dweb:/ipfs/QmSw4bZG2E66kQtQxyLHzWS3QdvpMPed4R5Vuroj3qZYym"
 			]
 		}
 	},
