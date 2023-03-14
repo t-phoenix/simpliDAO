@@ -1,21 +1,21 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
-import "../node_modules/@openzeppelin/contracts/access/Ownable.sol";
-import "../node_modules/@openzeppelin/contracts/governance/Governor.sol";
-import "../node_modules/@openzeppelin/contracts/governance/extensions/GovernorCountingSimple.sol";
-import "../node_modules/@openzeppelin/contracts/governance/extensions/GovernorVotes.sol";
-import "../node_modules/@openzeppelin/contracts/governance/extensions/GovernorVotesQuorumFraction.sol";
-import "../node_modules/@openzeppelin/contracts/governance/extensions/GovernorTimelockControl.sol";
-import "../node_modules/@openzeppelin/contracts/governance/utils/Votes.sol";
+// import "../node_modules/@openzeppelin/contracts/access/Ownable.sol";
+// import "../node_modules/@openzeppelin/contracts/governance/Governor.sol";
+// import "../node_modules/@openzeppelin/contracts/governance/extensions/GovernorCountingSimple.sol";
+// import "../node_modules/@openzeppelin/contracts/governance/extensions/GovernorVotes.sol";
+// import "../node_modules/@openzeppelin/contracts/governance/extensions/GovernorVotesQuorumFraction.sol";
+// import "../node_modules/@openzeppelin/contracts/governance/extensions/GovernorTimelockControl.sol";
+// import "../node_modules/@openzeppelin/contracts/governance/utils/Votes.sol";
 
-// import "@openzeppelin/contracts/access/Ownable.sol";
-// import "@openzeppelin/contracts/governance/Governor.sol";
-// import "@openzeppelin/contracts/governance/extensions/GovernorCountingSimple.sol";
-// import "@openzeppelin/contracts/governance/extensions/GovernorVotes.sol";
-// import "@openzeppelin/contracts/governance/extensions/GovernorVotesQuorumFraction.sol";
-// import "@openzeppelin/contracts/governance/extensions/GovernorTimelockControl.sol";
-// import "@openzeppelin/contracts/governance/utils/Votes.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/governance/Governor.sol";
+import "@openzeppelin/contracts/governance/extensions/GovernorCountingSimple.sol";
+import "@openzeppelin/contracts/governance/extensions/GovernorVotes.sol";
+import "@openzeppelin/contracts/governance/extensions/GovernorVotesQuorumFraction.sol";
+import "@openzeppelin/contracts/governance/extensions/GovernorTimelockControl.sol";
+import "@openzeppelin/contracts/governance/utils/Votes.sol";
 
 contract SimpliGovernor is
     Governor,

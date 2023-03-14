@@ -8,7 +8,7 @@ import Navbar from './components/Navbar';
 
 import Home from './pages/Home.js';
 import TokenScreen from './pages/Token.js';
-import Dashboard from './pages/Dashboard';
+import CreateScreen from './pages/CreateScreen';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 
@@ -28,7 +28,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/create" element={<CreateScreen />} />
           <Route path="/token" element={<TokenScreen />} />
         </Routes>
       </div>

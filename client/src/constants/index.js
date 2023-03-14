@@ -2,9 +2,9 @@ import { createCampaign, dashboard, logout, payment, profile, withdraw, glogo } 
 
 export const navlinks = [
   {
-    name: 'dash',
-    imgUrl: dashboard,
-    link: '/dashboard',
+    name: 'create',
+    imgUrl: withdraw,
+    link: '/create',
   },
   {
     name: 'token',
@@ -14,7 +14,7 @@ export const navlinks = [
   },
   {
     name: 'IDO',
-    imgUrl: withdraw,
+    imgUrl: dashboard,
     link: '/crowdsale',
   },
   {

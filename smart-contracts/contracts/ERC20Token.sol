@@ -2,18 +2,18 @@
 pragma solidity ^0.8.2;
 
 // Use for Truffle/ Node modules
-import "../node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol";
-import "../node_modules/@openzeppelin/contracts/token/ERC20/extensions/draft-ERC20Permit.sol";
-import "../node_modules/@openzeppelin/contracts/token/ERC20/extensions/ERC20Votes.sol";
-import "../node_modules/@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
-import "../node_modules/@openzeppelin/contracts/access/Ownable.sol";
+// import "../node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol";
+// import "../node_modules/@openzeppelin/contracts/token/ERC20/extensions/draft-ERC20Permit.sol";
+// import "../node_modules/@openzeppelin/contracts/token/ERC20/extensions/ERC20Votes.sol";
+// import "../node_modules/@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
+// import "../node_modules/@openzeppelin/contracts/access/Ownable.sol";
 
 // Use For Remix
-// import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-// import "@openzeppelin/contracts/token/ERC20/extensions/draft-ERC20Permit.sol";
-// import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Votes.sol";
-// import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
-// import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/extensions/draft-ERC20Permit.sol";
+import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Votes.sol";
+import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract ERC20Token is ERC20, ERC20Permit, ERC20Votes, Ownable, ERC20Burnable {
     constructor(
