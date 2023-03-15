@@ -1,0 +1,31 @@
+.formStyle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: start;
+    margin: 24px;
+    padding: 8px;
+    width: 40%;
+    height: 80%;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(92, 67, 67);
+    border-radius: 16px;
+}
+
+.ulStyle {
+    margin-inline: 5px;
+    margin-block: 10px;
+    padding-inline: 2px;
+}
+
+.createButton{
+    margin-left: 100px ;
+    margin-block: 20px;
+    padding-inline: 10px;
+    padding-block:5px ;
+    border: solid;
+    border-width: 2px;
+    border-color: black;
+    border-radius: 16px ;
+}

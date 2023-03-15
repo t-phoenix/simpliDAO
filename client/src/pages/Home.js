@@ -16,7 +16,7 @@ export default function Home() {
                 <h1 className='home-heading'>Hello HODLers !!</h1>
                 <h2 className='home-subheading'>Welcome to the Simpli DAO</h2>
                 <div>
-                    <button className='home-button' onClick={()=>{navigate('/dashboard')}}>Create your DAO</button>
+                    <button className='home-button' onClick={()=>{navigate('/create')}}>Create your DAO</button>
                     <button className='home-button' onClick={()=>{navigate('/token')}}>Join a DAO</button>
                 </div>
             </div>

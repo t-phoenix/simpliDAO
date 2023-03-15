@@ -95,3 +95,43 @@ export const SimpliFactoryABI = [
         "type": "function"
     }
 ]
+
+export const SimpliFactory2ABI = [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "governorAddress",
+          "type": "address"
+        }
+      ],
+      "name": "GovernorCreated",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "contract ERC20Token",
+          "name": "tokenAddr",
+          "type": "address"
+        },
+        {
+          "internalType": "contract TimelockController",
+          "name": "timelockAddr",
+          "type": "address"
+        }
+      ],
+      "name": "createGovernor",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ]
