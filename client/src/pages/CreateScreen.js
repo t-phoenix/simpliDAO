@@ -1,10 +1,6 @@
 import React, { useState } from "react";
-import ComponentFromABI from "../components/ComponentFromABI";
-import { SimpliFactoryABI } from "../ContractABIs/FactoryABI";
-import FormField from '../components/FormField';
+
 import '../styles/createstyle.css';
-import { createToken } from '../services/factoryServices';
-import { useAccount, usePrepareContractWrite, useContractWrite } from 'wagmi';
 import TokenForm from "../components/TokenForm";
 import TimelockForm from "../components/TimelockForm";
 import GovernorForm from "../components/GovernorForm";
@@ -21,7 +17,7 @@ export default function CreateScreen() {
     // const abi = SimpliFactoryABI
     // const components = ComponentFromABI(abi);
     return (
-        <div>
+        <div >
             <h1> DASHBOARD screen</h1>
             <p>Factory1 Contract: <a href={fact1Link} target="blank">{factory1}</a></p>
             <p>Factory2 Contract: <a href={fact2Link} target="blank">{factory2}</a></p>
@@ -45,8 +41,10 @@ export default function CreateScreen() {
                     <ul className="ulStyle">Use crowdsale contract from DAO to raise funds in initital rounds</ul>
                 </div>
                 <TokenForm />
-                <TimelockForm />
                 <GovernorForm />
+                <TimelockForm />
+                
+                
             </div>
 
         </div>

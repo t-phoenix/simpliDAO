@@ -10,6 +10,8 @@ import Home from './pages/Home.js';
 import TokenScreen from './pages/Token.js';
 import CreateScreen from './pages/CreateScreen';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
+import TxnScreen from './pages/TxnScreen';
+import DAOexplorer from './pages/DAOexplorer';
 
 
 function App() {
@@ -28,8 +30,10 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="explorer" element={<DAOexplorer />}/>
           <Route path="/create" element={<CreateScreen />} />
           <Route path="/token" element={<TokenScreen />} />
+          <Route path="/transaction" element={<TxnScreen/>}/>
         </Routes>
       </div>
 
