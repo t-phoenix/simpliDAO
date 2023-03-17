@@ -33,6 +33,8 @@ export default function TxnScreen() {
                 console.log("Single Event ", index, ":", singleEvent);
                 // setEvents((prevEvents)=> [...prevEvents, {singleEvent.}]);
                 let obj = {
+                    tokenName: singleEvent.args.name,
+                    tokenSymbol: singleEvent.args.symbol,
                     tokenAddr: singleEvent.args.contractAddress,
                     creationTrxn: singleEvent.transactionHash
                 }
@@ -44,13 +46,14 @@ export default function TxnScreen() {
             console.log("Error while fetching Token Creation events:", err);
         });
 
-        let timelockEventFilter = factory1.filters.TimelockControllerCreated();
+        let timelockEventFilter = factory1.filters.NewTimelockControllerCreated();
         factory1.queryFilter(timelockEventFilter).then((timelockEvents) => {
             let timelockList = []
             for (let index = 0; index < timelockEvents.length; index++) {
                 const singleEvent = timelockEvents[index];
 
                 let obj = {
+                    timelockAdmin: singleEvent.args.admin, 
                     timelockAddr: singleEvent.args.timelockControllerAddress,
                     creationTrxn: singleEvent.transactionHash
                 }
@@ -89,7 +92,7 @@ export default function TxnScreen() {
                     {tokens.map((token) => (
                         // <div key={}>{JSON.stringify(token)}</div>
                         <div key={token.tokenAddr} className="content-container">
-                            <h3>Token Address: <a href={getLinkedAddress(token.tokenAddr)} target="blank" style={{ fontSize: '14px' }}>{token.tokenAddr}</a></h3>
+                            <h3>{token.tokenName}({token.tokenSymbol}): <a href={getLinkedAddress(token.tokenAddr)} target="blank" style={{ fontSize: '14px' }}>{token.tokenAddr}</a></h3>
                             <p>Created At: <a href={getLinkedAddress(token.creationTrxn)} target="blank" style={{ fontSize: '14px' }}>{token.creationTrxn}</a></p>
                         </div>
                     ))}

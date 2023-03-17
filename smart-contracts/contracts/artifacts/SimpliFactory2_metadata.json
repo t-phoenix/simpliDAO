@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.19+commit.7dd6d404"
+		"version": "0.8.18+commit.87f61d96"
 	},
 	"language": "Solidity",
 	"output": {
@@ -20,6 +20,11 @@
 			},
 			{
 				"inputs": [
+					{
+						"internalType": "string",
+						"name": "daoName",
+						"type": "string"
+					},
 					{
 						"internalType": "contract ERC20Token",
 						"name": "tokenAddr",
@@ -65,7 +70,7 @@
 		},
 		"optimizer": {
 			"enabled": true,
-			"runs": 100
+			"runs": 20000
 		},
 		"remappings": []
 	},
@@ -359,19 +364,19 @@
 			]
 		},
 		"SimpliFactory2.sol": {
-			"keccak256": "0x2b344f2245f610f123f8013b3b4e418823ec636f035dc9dd5ee7d27cb05757bc",
+			"keccak256": "0xccb0a7653b076c13d406a025cf0cc9fb9cdeb7c779024c9165d65504d894b010",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://d9242cf83eb72de06e0a95ff832c5fa059c35a40291644a9eaac92bfa3011cd6",
-				"dweb:/ipfs/QmQsvV3H4K7AZVBLY95NtKgwKjCQz3BeRBMnAxrtMn4mPD"
+				"bzz-raw://ebfa1eb2c39d9ca14619a68608e8fd5f441847daf66acb2075df64d83b8cd879",
+				"dweb:/ipfs/QmPDWGN5SeHorcS5ivUbLFwK3j5RnUAvdiD8fPfC5TbPcf"
 			]
 		},
 		"SimpliGovernor.sol": {
-			"keccak256": "0x2aa68010acd8e05449be520f9464bb30fbb15efbe8b45f92986d7380c2d23831",
+			"keccak256": "0x24b01171f7a1393cb15fead2011beeede84b8781434c39a1bb8bbceb4f909a43",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://593f32f06ea8a75d25a37daf9d032241ce2073878646de7f0acef27dc9287dca",
-				"dweb:/ipfs/QmZRdAYMRRLsxoLkQnBG6MivtSz2UVM6N5G6JvF5G5dZde"
+				"bzz-raw://314fd38c9296c6f2594e132dbbf0c263d6968ec5d25cf45a0903fe484f666b9f",
+				"dweb:/ipfs/QmdS6XH1jFWASVStUta5aPHisCc5S59RixBBLdkPdexqST"
 			]
 		}
 	},

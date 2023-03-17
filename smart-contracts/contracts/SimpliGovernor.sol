@@ -25,8 +25,8 @@ contract SimpliGovernor is
     GovernorTimelockControl,
     Ownable
 {
-    constructor(IVotes _token, TimelockController _timelock)
-        Governor("MyGovernor")
+    constructor(string memory daoName, IVotes _token, TimelockController _timelock)
+        Governor(daoName)
         GovernorVotes(_token)
         GovernorVotesQuorumFraction(10)
         GovernorTimelockControl(_timelock)

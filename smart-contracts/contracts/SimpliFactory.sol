@@ -2,13 +2,12 @@
 pragma solidity ^0.8.0;
 
 import "./ERC20Token.sol";
-import "./SimpliGovernor.sol";
 import "@openzeppelin/contracts/governance/TimelockController.sol";
 
 contract SimpliFactory {
 
-    event NewERC20TokenCreated(address indexed contractAddress);
-    event TimelockControllerCreated(address indexed timelockControllerAddress);
+    event NewERC20TokenCreated(string name, string symbol, address indexed contractAddress);
+    event NewTimelockControllerCreated(address admin, address indexed timelockControllerAddress);
 
 
 
@@ -20,7 +19,7 @@ contract SimpliFactory {
     ) external returns (address) {
         ERC20Token token = new ERC20Token(name, symbol, initialSupply, owner);
         // token.mint(msg.sender, initialSupply);
-        emit NewERC20TokenCreated(address(token));
+        emit NewERC20TokenCreated(name, symbol, address(token));
         return address(token);
     }
 
@@ -38,7 +37,7 @@ contract SimpliFactory {
             admin
         );
         // timelock.setPendingAdmin(msg.sender);
-        emit TimelockControllerCreated(address(timelock));
+        emit NewTimelockControllerCreated(admin, address(timelock));
         return address(timelock);
     }
 

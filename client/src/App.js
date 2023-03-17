@@ -12,6 +12,8 @@ import CreateScreen from './pages/CreateScreen';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import TxnScreen from './pages/TxnScreen';
 import DAOexplorer from './pages/DAOexplorer';
+import DAODetails from './pages/DAODetails';
+import CreateProposal from './pages/CreateProposal';
 
 
 function App() {
@@ -31,6 +33,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="explorer" element={<DAOexplorer />}/>
+          <Route path="/dao-details/:id" element={<DAODetails />}/>
+          <Route path="/create-proposal/:id" element={<CreateProposal />} />
           <Route path="/create" element={<CreateScreen />} />
           <Route path="/token" element={<TokenScreen />} />
           <Route path="/transaction" element={<TxnScreen/>}/>

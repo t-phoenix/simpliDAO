@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 
 import '../styles/createstyle.css';
-import TokenForm from "../components/TokenForm";
-import TimelockForm from "../components/TimelockForm";
-import GovernorForm from "../components/GovernorForm";
-
+import TokenForm from "../components/forms/TokenForm";
+import TimelockForm from "../components/forms/TimelockForm";
+import GovernorForm from "../components/forms/GovernorForm";
+import { Factory1_Addr, Factory2_Addr } from "../constants/ContractAddress";
 
 export default function CreateScreen() {
 
-    const factory1 = "0xD6ff05a3Ef112A5dc5CCc7216414F61fe79e1095";
-    const factory2 = "0x5eCAa778B2E7352d83a51148aFB38e1890951192";
+    const factory1 = Factory1_Addr;
+    const factory2 = Factory2_Addr;
     const fact1Link = `https://mumbai.polygonscan.com/address/${factory1}`
     const fact2Link = `https://mumbai.polygonscan.com/address/${factory2}`
 

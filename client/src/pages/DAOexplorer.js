@@ -1,5 +1,6 @@
 import { getProvider } from "@wagmi/core";
 import { ethers } from "ethers";
+import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { Factory2_Addr } from "../constants/ContractAddress";
 import { SimpliFactory2ABI } from "../ContractABIs/FactoryABI";
@@ -9,6 +10,7 @@ export default function DAOexplorer(){
     const [daos, setDaos] = useState([]);
     const provider = getProvider();
     const factory2 = new ethers.Contract(Factory2_Addr, SimpliFactory2ABI, provider);
+    const navigate = useNavigate()
 
     useEffect(()=>{
         fetchDAOContracts();
@@ -16,7 +18,7 @@ export default function DAOexplorer(){
 
     function fetchDAOContracts(){
 
-        let daoEventFilter = factory2.filters.GovernorCreated();
+        let daoEventFilter = factory2.filters.NewGovernorCreated();
         factory2.queryFilter(daoEventFilter).then((myevents) => {
             // console.log("My Events", myevents);
             let daoList = []
@@ -25,6 +27,7 @@ export default function DAOexplorer(){
                 console.log("Single Event ", index, ":", singleEvent);
                 // setEvents((prevEvents)=> [...prevEvents, {singleEvent.}]);
                 let obj = {
+                    daoName: singleEvent.args.daoName,
                     daoAddr: singleEvent.args.governorAddress,
                     creationTrxn: singleEvent.transactionHash
                 }
@@ -37,6 +40,12 @@ export default function DAOexplorer(){
         });
 
     }
+
+    
+    function handleDAOCard(dao){
+        navigate(`/dao-details/${dao.daoName}`,{state: dao} )
+    }
+
 
     function getLinkedAddress(address) {
         return `https://mumbai.polygonscan.com/address/${address}`
@@ -54,13 +63,13 @@ export default function DAOexplorer(){
                 
                 
             </div>
-            <p>Factory2 Factory: <a href={fact2Link} target="blank">{Factory2_Addr}</a></p>
+            <p>Factory2 Contract: <a href={fact2Link} target="blank">{Factory2_Addr}</a></p>
 
             <div>
             {daos.map((dao) => (
                         // <div key={}>{JSON.stringify(token)}</div>
-                        <div key={dao.daoAddr} className="content-container">
-                            <h3>DAO Contract Address: <a href={getLinkedAddress(dao.daoAddr)} target="blank" style={{ fontSize: '14px' }}>{dao.daoAddr}</a></h3>
+                        <div key={dao.daoAddr} className="content-container" onClick={()=>handleDAOCard(dao)}>
+                            <h3>{dao.daoName}: <a href={getLinkedAddress(dao.daoAddr)} target="blank" style={{ fontSize: '14px' }}>{dao.daoAddr}</a></h3>
                             <p>Created At: <a href={getLinkedAddress(dao.creationTrxn)} target="blank" style={{ fontSize: '14px' }}>{dao.creationTrxn}</a></p>
                         </div>
                     ))}
