@@ -1,3 +1,4 @@
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Web3Button } from '@web3modal/react';
@@ -17,6 +18,9 @@ import CreateProposal from './pages/CreateProposal';
 
 
 function App() {
+
+  
+
   return (
     <div className="App">
       {/* <Web3Button /> */}
@@ -32,7 +36,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="explorer" element={<DAOexplorer />}/>
+          <Route path="/explorer" element={<DAOexplorer />}/>
           <Route path="/dao-details/:id" element={<DAODetails />}/>
           <Route path="/create-proposal/:id" element={<CreateProposal />} />
           <Route path="/create" element={<CreateScreen />} />

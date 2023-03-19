@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import '../styles/homestyle.css';
 import { getLinkedAddress, toETHdenomination } from '../helper/formatter';
@@ -13,6 +13,7 @@ export default function DAODetails() {
     const navigate = useNavigate();
 
     const dao = state
+
 
     // const [transferForm, setTransferForm] = useState({
     //     amount: ''
@@ -57,7 +58,7 @@ export default function DAODetails() {
                     <button onClick={()=>navigate(`/dao-settings/${dao.daoName}`, {state: dao} )}>
                         Settings
                     </button>
-                    <button onClick={()=>navigate(`/create-proposal/${dao.daoName}`, {state: {...dao, data}})}>
+                    <button onClick={()=>navigate(`/create-proposal/${dao.daoAddr}`, {state: {...dao, data}})}>
                         Create Proposal
                     </button>
                     <div>

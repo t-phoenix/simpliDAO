@@ -14,6 +14,10 @@ export default function DAOexplorer(){
 
     useEffect(()=>{
         fetchDAOContracts();
+        console.log('DE retrun 1');
+        return()=>{
+            console.log("DE return 2");
+        }
     }, [])
 
     function fetchDAOContracts(){
@@ -43,7 +47,7 @@ export default function DAOexplorer(){
 
     
     function handleDAOCard(dao){
-        navigate(`/dao-details/${dao.daoName}`,{state: dao} )
+        navigate(`/dao-details/${dao.daoAddr}`,{state: dao} )
     }
 
 

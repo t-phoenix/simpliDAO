@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 export default function Home() {
     const navigate = useNavigate();
 
+    
     return (
         <div className='main-content'>
             {/* <h1>Governance Kit </h1>
