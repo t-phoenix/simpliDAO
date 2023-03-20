@@ -37,7 +37,7 @@ root.render(
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </WagmiConfig> 
+    </WagmiConfig>
 
     <Web3Modal projectId={projectId} ethereumClient={ethereumClient} />
 

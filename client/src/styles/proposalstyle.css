@@ -1,14 +1,25 @@
-.newForm {
+.formInputs {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: start;
-    margin: 24px;
-    padding: 8px;
-    width: 90%;
-    height: 80%;
+    padding-inline: 10%;
+    margin-bottom: 4px;
+    
+}
+
+.formContainer {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
     border-style: solid;
+    margin: 12px;    
+    height: 80%;
+    width: 40%;
+    padding: 16px;
     border-width: 2px;
     border-color: rgb(92, 67, 67);
     border-radius: 16px;
+
 }

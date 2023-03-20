@@ -14,10 +14,7 @@ export default function DAOexplorer(){
 
     useEffect(()=>{
         fetchDAOContracts();
-        console.log('DE retrun 1');
-        return()=>{
-            console.log("DE return 2");
-        }
+        
     }, [])
 
     function fetchDAOContracts(){
