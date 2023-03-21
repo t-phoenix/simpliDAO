@@ -2,13 +2,14 @@ import { useState, useEffect } from 'react';
 // import { proposals } from '../constants';
 import { getProvider, readContract } from "@wagmi/core";
 import { ethers } from 'ethers';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { SimpliGovernorABI } from '../ContractABIs/GovernorABI';
 
 
 export default function ProposalList({ daoData }) {
     const provider = getProvider();
     const { state } = useLocation();
+    const navigate = useNavigate();
     console.log("Propsal List DATA: ", daoData, "state", state);
     const daoContract = new ethers.Contract(state.daoAddr, SimpliGovernorABI, provider);
 
@@ -54,8 +55,9 @@ export default function ProposalList({ daoData }) {
     }
 
 
-    function handleProposalCard(){
-        
+    function handleProposalCard(proposal){
+        navigate(`/proposal-details/:${proposal.proposalId}`, {state: {...state, proposal}})
+        // navigate(`/dao-details/${dao.daoAddr}`,{state: dao} )
     }
 
     return (
@@ -64,7 +66,7 @@ export default function ProposalList({ daoData }) {
         <div className='cards-container'>
 
             {proposals.map((proposal) =>
-                <div key={proposal.key} className='token-card' onClick={handleProposalCard}>
+                <div key={proposal.key} className='token-card' onClick={()=>handleProposalCard(proposal)}>
                     <h4>{proposal.proposalId}</h4>
                     <p>Description: {proposal.description}</p>
                     <p>Start: {proposal.votingStartDate}</p>

@@ -65,8 +65,15 @@ export default function TxnScreen() {
         })
     }
 
+    
+
     function getLinkedAddress(address) {
         return `https://mumbai.polygonscan.com/address/${address}`
+    }
+
+    function handleTokenCard(token){
+        console.log("TOken Card NAme:", token.tokenName)
+        navigate('/token', {state: token})
     }
 
 
@@ -89,13 +96,16 @@ export default function TxnScreen() {
                         <p>List of tokens Created Using Simpli Protocol. Create your's <button onClick={() => navigate('/create')} >here</button></p>
                         <p>You can import the token in metamask, for simple transfer functions, or head onto token Screen for advance features used by Simpli Protocol to be used with Governor for tracking voting power</p>
                     </div>
+                    <div style={{overflow: 'scroll'}}>
                     {tokens.map((token) => (
                         // <div key={}>{JSON.stringify(token)}</div>
                         <div key={token.tokenAddr} className="content-container">
                             <h3>{token.tokenName}({token.tokenSymbol}): <a href={getLinkedAddress(token.tokenAddr)} target="blank" style={{ fontSize: '14px' }}>{token.tokenAddr}</a></h3>
                             <p>Created At: <a href={getLinkedAddress(token.creationTrxn)} target="blank" style={{ fontSize: '14px' }}>{token.creationTrxn}</a></p>
+                            <button onClick={()=>handleTokenCard(token)}>Token Functions</button>
                         </div>
                     ))}
+                    </div>
                 </div>
                 <div className="list-container">
                     <div className="trxn-header">

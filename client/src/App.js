@@ -15,6 +15,8 @@ import TxnScreen from './pages/TxnScreen';
 import DAOexplorer from './pages/DAOexplorer';
 import DAODetails from './pages/DAODetails';
 import CreateProposal from './pages/CreateProposal';
+import ProposalDetails from './pages/ProposalDetails';
+import DAOSettings from './pages/DAOSettings';
 
 
 function App() {
@@ -39,6 +41,8 @@ function App() {
           <Route path="/explorer" element={<DAOexplorer />}/>
           <Route path="/dao-details/:id" element={<DAODetails />}/>
           <Route path="/create-proposal/:id" element={<CreateProposal />} />
+          <Route path="/proposal-details/:id" element ={<ProposalDetails />} />
+          <Route path="/dao-settings/:id" element={<DAOSettings />}/>
           <Route path="/create" element={<CreateScreen />} />
           <Route path="/token" element={<TokenScreen />} />
           <Route path="/transaction" element={<TxnScreen/>}/>

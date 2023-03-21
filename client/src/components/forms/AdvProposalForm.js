@@ -11,12 +11,7 @@ import { ethers } from "ethers";
 import { ERC20TokenABI } from "../../ContractABIs/ERC20TokenABI";
 import { getLinkedAddress } from "../../helper/formatter";
 
-
-
-
-
-export default function ProposalForm() {
-
+export default function AdvProposalForm(){
     const { state }= useLocation()
     const DAOdata = state?.data;
     console.log("MY Location DATA:", state.daoAddr, DAOdata);
@@ -25,8 +20,9 @@ export default function ProposalForm() {
     console.log("Check Connected Account:", account.address);
 
     const [proposalForm, setProposalForm] = useState({
-        sendTo: '',
-        amount: '',
+        target: '',
+        value: '',
+        calldata: '',
         description: ''
     });
 
@@ -35,14 +31,14 @@ export default function ProposalForm() {
     
 
     async function CreateProposalButton() {
-        console.log("USER INPUTS:", proposalForm);
-        const calldata = token.interface.encodeFunctionData('transfer', [proposalForm.sendTo, proposalForm.amount]);
-
+        
+        // const calldata = token.interface.encodeFunctionData('transfer', [proposalForm.target, proposalForm.value]);
+        // console.log("USER INPUTS:", calldata);
         const config = await prepareWriteContract({
             address: state.daoAddr,
             abi: SimpliGovernorABI,
             functionName: 'propose',
-            args: [[DAOdata[3]], [0], [calldata], proposalForm.description]
+            args: [proposalForm.target, proposalForm.value, proposalForm.calldata, proposalForm.description]
         })
 
         const { hash } = await writeContract(config);
@@ -54,30 +50,41 @@ export default function ProposalForm() {
     const handleFormFieldChange = (fieldName, e) => {
         setProposalForm({ ...proposalForm, [fieldName]: e.target.value })
     }
-
-    return (
+    
+    return(
         <div className="formContainer">
             {/* <h2>DAO Address: {state.daoAddr}</h2> */}
             <form className="formInputs">
 
-                <h3 style={{marginBlock: '8px'}}>DAO Token Expense form</h3>
+                <h3 style={{marginBlock: '8px'}}>Advance Proposal Form</h3>
                 <a href={getLinkedAddress(DAOdata[3])} target="blank" style={{ fontSize: '14px', marginBlock: '8px' }}>{DAOdata[3]}</a>
 
                 <FormField
-                    labelName="Receiver"
-                    placeholder="address"
-                    inputType="text"
-                    value={proposalForm.sendTo}
-                    handleChange={(e) => handleFormFieldChange('sendTo', e)}
+                    labelName="Target Contract"
+                    placeholder="address[]"
+                    inputType="list"
+                    value={proposalForm.target}
+                    handleChange={(e) => handleFormFieldChange('target', e)}
                 />
+                <p style={{fontSize: '10px'}}>Example: ["0x1158EE5AC602F9517C8D9C02b5b67B70DD991E66", "0x6C57346BF8255Ea8EA44F001693Ce444A22b17ad"]</p>
+                <FormField
+                    labelName="Values to send"
+                    placeholder="amount[]"
+                    inputType="list"
+                    value={proposalForm.value}
+                    handleChange={(e) => handleFormFieldChange('value', e)}
+                />
+                <p style={{fontSize: '10px'}}>Example: [0, 450000] in wei</p>
+
 
                 <FormField
-                    labelName="Amount"
-                    placeholder="in wei denomination"
-                    inputType="numeric"
-                    value={proposalForm.amount}
-                    handleChange={(e) => handleFormFieldChange('amount', e)}
+                    labelName="Calldatas"
+                    placeholder="encode Function call"
+                    inputType="hash"
+                    value={proposalForm.calldata}
+                    handleChange={(e) => handleFormFieldChange('calldata', e)}
                 />
+                <p style={{fontSize: '10px', flexWrap: 'initial'}}>Example: ["0xa9059cbb0000000....000000000000000", "0xb40f9cbb000.....000000000000000"]</p>
 
                 <FormField
                     labelName="Description"
@@ -99,5 +106,4 @@ export default function ProposalForm() {
             </button>
         </div>
     )
-
 }

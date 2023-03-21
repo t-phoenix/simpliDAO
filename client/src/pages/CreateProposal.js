@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useContractReads } from "wagmi";
+import AdvProposalForm from "../components/forms/AdvProposalForm";
 import ProposalForm from "../components/forms/ProposalForm";
 import { SimpliGovernorABI } from "../ContractABIs/GovernorABI";
 import { getLinkedAddress } from "../helper/formatter";
@@ -27,8 +28,10 @@ export default function CreateProposal(){
             </div>
             <h2>Create your proposal here</h2>
 
-            <ProposalForm />
-            
+            <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
+                <ProposalForm />
+                <AdvProposalForm />
+            </div>
         </div>
     )
 

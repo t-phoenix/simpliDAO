@@ -18,12 +18,6 @@ export default function DAODetails() {
 
     const dao = state;
 
-
-
-
-
-
-
     const daoContract = {
         address: state.daoAddr,
         abi: SimpliGovernorABI,
@@ -44,8 +38,6 @@ export default function DAODetails() {
 
     console.log("DAO Data fetched: ", String(data));
 
-
-
     return (
         <div className='trxn-content'>
             <div className='heading-container'>
@@ -56,12 +48,14 @@ export default function DAODetails() {
                     <p>Timelock (Treasury): <a href={getLinkedAddress(data[4])} target="blank" style={{ fontSize: '14px' }}>{data[4]}</a></p>
                 </div>
                 <div>
-                    <button onClick={() => navigate(`/dao-settings/${dao.daoName}`, { state: dao })}>
-                        Settings
-                    </button>
-                    <button onClick={() => navigate(`/create-proposal/${dao.daoAddr}`, { state: { ...dao, data } })}>
-                        Create Proposal
-                    </button>
+                    <div style={{width: '70%', display: 'flex', flexDirection: 'row', justifyContent:'space-evenly'}}>
+                        <button onClick={() => navigate(`/dao-settings/${dao.daoAddr}`, { state: {...dao, data} })}>
+                            Settings
+                        </button>
+                        <button onClick={() => navigate(`/create-proposal/${dao.daoAddr}`, { state: { ...dao, data } })}>
+                            Create Proposal
+                        </button>
+                    </div>
                     <div>
                         <p>Owner: <a href={getLinkedAddress(data[1])} target="blank" style={{ fontSize: '14px' }}>{data[1]}</a></p>
                         <p>Proposal Threshold: {toETHdenomination(Number(data[2]))} Token</p>
@@ -73,20 +67,8 @@ export default function DAODetails() {
 
             </div>
 
-
-
-
             <h2>All Proposals</h2>
-
             {data && <ProposalList daoData={data} />}
-
-
-
-
-
-
-
-
         </div>
     );
 }
