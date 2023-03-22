@@ -99,7 +99,7 @@ export default function ProposalDetails() {
                 <button>Queue</button>
             </div> :<div></div> }
             {state.proposal.proposalState == 5 ? <div>
-                <p>Proposal Queues</p>
+                <p>Proposal Queued</p>
                 <button>Execute</button>
             </div> :<div></div> }
             {state.proposal.proposalState == 6 ? <div><h3>Proposal Expired</h3></div>: <div></div> }

@@ -10,9 +10,11 @@ export default function StaticData({ token }) {
     const [result, setResult] = React.useState([]);
 
     React.useEffect(() => {
+        FetchTokenData()
         if (token) {
             setTokenAddr(token.tokenAddr);
         }
+        
     }, [])
 
 

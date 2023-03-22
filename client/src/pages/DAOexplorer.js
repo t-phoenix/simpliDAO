@@ -28,6 +28,7 @@ export default function DAOexplorer(){
                 console.log("Single Event ", index, ":", singleEvent);
                 // setEvents((prevEvents)=> [...prevEvents, {singleEvent.}]);
                 let obj = {
+                    admin: singleEvent.args.admin,
                     daoName: singleEvent.args.daoName,
                     daoAddr: singleEvent.args.governorAddress,
                     creationTrxn: singleEvent.transactionHash
@@ -58,9 +59,10 @@ export default function DAOexplorer(){
             <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '80%'}}>
                 <div >
                     <h1>DAO Explorer</h1>
-                    <p>All DAO created with Simpli Protocol are listed here</p>
+                    <p>All DAO created with Simpli Protocol are listed here. Create your's <button onClick={() => navigate('/create')} >now</button> or Join DAO below</p>
+                    <p>Owners can renounce their ownerships after configuring initial parameters so that DAO is considered to be prone to Creator centralisation.</p>
                 </div>
-                <button style={{marginBlock: '40px'}} onClick={fetchDAOContracts}>Refresh</button>
+                <button style={{height: '40px' , marginBlock: '40px'}} onClick={fetchDAOContracts}>Refresh</button>
                 
                 
             </div>
@@ -69,9 +71,12 @@ export default function DAOexplorer(){
             <div>
             {daos.map((dao) => (
                         // <div key={}>{JSON.stringify(token)}</div>
-                        <div key={dao.daoAddr} className="content-container" onClick={()=>handleDAOCard(dao)}>
+                        <div key={dao.daoAddr} className="content-container" >
                             <h3>{dao.daoName}: <a href={getLinkedAddress(dao.daoAddr)} target="blank" style={{ fontSize: '14px' }}>{dao.daoAddr}</a></h3>
                             <p>Created At: <a href={getLinkedAddress(dao.creationTrxn)} target="blank" style={{ fontSize: '14px' }}>{dao.creationTrxn}</a></p>
+                            <button onClick={()=>handleDAOCard(dao)}>
+                                Join DAO
+                            </button>
                         </div>
                     ))}
             </div>

@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.2+commit.661d1103"
+		"version": "0.8.19+commit.7dd6d404"
 	},
 	"language": "Solidity",
 	"output": {
@@ -716,6 +716,20 @@
 			}
 		],
 		"devdoc": {
+			"events": {
+				"Approval(address,address,uint256)": {
+					"details": "Emitted when the allowance of a `spender` for an `owner` is set by a call to {approve}. `value` is the new allowance."
+				},
+				"DelegateChanged(address,address,address)": {
+					"details": "Emitted when an account changes their delegate."
+				},
+				"DelegateVotesChanged(address,uint256,uint256)": {
+					"details": "Emitted when a token transfer or delegate change results in changes to a delegate's number of votes."
+				},
+				"Transfer(address,address,uint256)": {
+					"details": "Emitted when `value` tokens are moved from one account (`from`) to another (`to`). Note that `value` may be zero."
+				}
+			},
 			"kind": "dev",
 			"methods": {
 				"DOMAIN_SEPARATOR()": {
@@ -812,14 +826,14 @@
 		"compilationTarget": {
 			"ERC20Token.sol": "ERC20Token"
 		},
-		"evmVersion": "istanbul",
+		"evmVersion": "paris",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": false,
-			"runs": 200
+			"enabled": true,
+			"runs": 2000
 		},
 		"remappings": []
 	},
@@ -953,11 +967,11 @@
 			]
 		},
 		"ERC20Token.sol": {
-			"keccak256": "0xeda8225b4a34f63f289fb6d4e874d60db9e98c181f6c76515212582199e5c74e",
+			"keccak256": "0x5aeea56bfa6b77aeb76164231a13d98cc7fc5278d5f978d14170c3e0e66324d6",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://1f345a8452885fe34ac07a2eeca4d3cf8d04e383268bfa70192132ec8d95def4",
-				"dweb:/ipfs/QmSw4bZG2E66kQtQxyLHzWS3QdvpMPed4R5Vuroj3qZYym"
+				"bzz-raw://2438add6bf3c8ab9e3e57771db116153610362330e94a10746284d4c51a12476",
+				"dweb:/ipfs/QmVjVskjAECNeBPW9ZvYYxdsMBqNhBxfJRY5NFxZTARhfp"
 			]
 		}
 	},

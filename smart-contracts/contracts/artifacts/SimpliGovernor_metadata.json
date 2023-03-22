@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.18+commit.87f61d96"
+		"version": "0.8.19+commit.7dd6d404"
 	},
 	"language": "Solidity",
 	"output": {
@@ -20,6 +20,11 @@
 					{
 						"internalType": "contract TimelockController",
 						"name": "_timelock",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "admin",
 						"type": "address"
 					}
 				],
@@ -1364,7 +1369,7 @@
 		},
 		"optimizer": {
 			"enabled": true,
-			"runs": 200
+			"runs": 2000
 		},
 		"remappings": []
 	},
@@ -1594,11 +1599,11 @@
 			]
 		},
 		"SimpliGovernor.sol": {
-			"keccak256": "0x24b01171f7a1393cb15fead2011beeede84b8781434c39a1bb8bbceb4f909a43",
+			"keccak256": "0x5de4007608125ad9e91e25a4de96d3665b680f13b5e30daea0edae59513c1c11",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://314fd38c9296c6f2594e132dbbf0c263d6968ec5d25cf45a0903fe484f666b9f",
-				"dweb:/ipfs/QmdS6XH1jFWASVStUta5aPHisCc5S59RixBBLdkPdexqST"
+				"bzz-raw://9466923aae515a07afdf6a64d696a2c2982c64e8d427f3473e1cb75023254969",
+				"dweb:/ipfs/QmaA6Nagi93oUyDk7V7jZugTnchxaUEozYoY1fZmuptGUb"
 			]
 		}
 	},

@@ -23,7 +23,7 @@ export default function Balance({token, user}){
 
     return(
         <div>
-            <p>Treasury Balance: {toETHdenomination(Number(data[0]))} {data[1]}</p>
+            {!isLoading  && <p>Treasury Balance: {toETHdenomination(Number(data[0]))} {data[1]}</p>}
         </div>
     )
 }

@@ -38,6 +38,7 @@ export default function Delegate({token}){
         <div className="formContainer">
             <form className="formInputs">
                 <h4>Delegate Votes</h4>
+                <p align="left" >Delegate votes to yourself or another address to initialise voting power.</p>
                 <FormField 
                     labelName="Token"
                     placeholder="address"

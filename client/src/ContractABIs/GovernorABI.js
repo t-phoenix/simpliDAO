@@ -15,6 +15,11 @@ export const SimpliGovernorABI = [
 				"internalType": "contract TimelockController",
 				"name": "_timelock",
 				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "admin",
+				"type": "address"
 			}
 		],
 		"stateMutability": "nonpayable",

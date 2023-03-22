@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.18+commit.87f61d96"
+		"version": "0.8.19+commit.7dd6d404"
 	},
 	"language": "Solidity",
 	"output": {
@@ -9,13 +9,19 @@
 				"anonymous": false,
 				"inputs": [
 					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "daoName",
+						"type": "string"
+					},
+					{
 						"indexed": true,
 						"internalType": "address",
 						"name": "governorAddress",
 						"type": "address"
 					}
 				],
-				"name": "GovernorCreated",
+				"name": "NewGovernorCreated",
 				"type": "event"
 			},
 			{
@@ -69,8 +75,8 @@
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": true,
-			"runs": 20000
+			"enabled": false,
+			"runs": 200
 		},
 		"remappings": []
 	},
@@ -356,19 +362,19 @@
 			]
 		},
 		"ERC20Token.sol": {
-			"keccak256": "0xeda8225b4a34f63f289fb6d4e874d60db9e98c181f6c76515212582199e5c74e",
+			"keccak256": "0x5aeea56bfa6b77aeb76164231a13d98cc7fc5278d5f978d14170c3e0e66324d6",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://1f345a8452885fe34ac07a2eeca4d3cf8d04e383268bfa70192132ec8d95def4",
-				"dweb:/ipfs/QmSw4bZG2E66kQtQxyLHzWS3QdvpMPed4R5Vuroj3qZYym"
+				"bzz-raw://2438add6bf3c8ab9e3e57771db116153610362330e94a10746284d4c51a12476",
+				"dweb:/ipfs/QmVjVskjAECNeBPW9ZvYYxdsMBqNhBxfJRY5NFxZTARhfp"
 			]
 		},
 		"SimpliFactory2.sol": {
-			"keccak256": "0xccb0a7653b076c13d406a025cf0cc9fb9cdeb7c779024c9165d65504d894b010",
+			"keccak256": "0x90a37e76513e78df4aa51b38fe513da86c22d0a35f9fa4504fa4c2918be1f8d6",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://ebfa1eb2c39d9ca14619a68608e8fd5f441847daf66acb2075df64d83b8cd879",
-				"dweb:/ipfs/QmPDWGN5SeHorcS5ivUbLFwK3j5RnUAvdiD8fPfC5TbPcf"
+				"bzz-raw://017f239ded855e428e2b95dd0560f077df6ebc195042072d0b0daab95f8a05a2",
+				"dweb:/ipfs/QmaTg4kq2hQddcg7n2hcVwRh7fJ198BihJD6sdaCbRXVVA"
 			]
 		},
 		"SimpliGovernor.sol": {

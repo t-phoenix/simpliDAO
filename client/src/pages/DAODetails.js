@@ -36,16 +36,17 @@ export default function DAODetails() {
         ]
     })
 
-    console.log("DAO Data fetched: ", String(data));
+    console.log("DAO Data fetched: ", data);
 
     return (
-        <div className='trxn-content'>
+        <div>
+        {!isLoading && <div className='trxn-content'>
             <div className='heading-container'>
                 <div>
                     <h2>{state.daoName}</h2>
                     <p>Address: <a href={getLinkedAddress(state.daoAddr)} target="blank" style={{ fontSize: '14px' }}>{state.daoAddr}</a></p>
                     <p>Token: <a href={getLinkedAddress(data[3])} target="blank" style={{ fontSize: '14px' }}>{data[3]}</a></p>
-                    <p>Timelock (Treasury): <a href={getLinkedAddress(data[4])} target="blank" style={{ fontSize: '14px' }}>{data[4]}</a></p>
+                    <p>Timelock: <a href={getLinkedAddress(data[4])} target="blank" style={{ fontSize: '14px' }}>{data[4]}</a></p>
                 </div>
                 <div>
                     <div style={{width: '70%', display: 'flex', flexDirection: 'row', justifyContent:'space-evenly'}}>
@@ -64,11 +65,16 @@ export default function DAODetails() {
                     </div>
 
                 </div>
+                
 
             </div>
-
+            <div>
+                <p>Timelock Contract Acts as Treasury for your DAO. Send funds to timelock controller contract address of your DAO.</p>
+                <p>Native ETH is not supported, so you can always use WETH to manage your DAO Treasury</p>
+            </div>
             <h2>All Proposals</h2>
             {data && <ProposalList daoData={data} />}
+        </div>}
         </div>
     );
 }

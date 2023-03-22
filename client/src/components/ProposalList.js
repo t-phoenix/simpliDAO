@@ -66,12 +66,15 @@ export default function ProposalList({ daoData }) {
         <div className='cards-container'>
 
             {proposals.map((proposal) =>
-                <div key={proposal.key} className='token-card' onClick={()=>handleProposalCard(proposal)}>
+                <div key={proposal.key} className='token-card' >
                     <h4>{proposal.proposalId}</h4>
                     <p>Description: {proposal.description}</p>
                     <p>Start: {proposal.votingStartDate}</p>
                     <p>End: {proposal.votingEndDate}</p> 
                     <p>Status: {proposal.proposalState}</p>
+                    <button style={{marginLeft: '20px'}} onClick={()=>handleProposalCard(proposal)}>
+                        Details
+                    </button>
                 </div>
             )}
 

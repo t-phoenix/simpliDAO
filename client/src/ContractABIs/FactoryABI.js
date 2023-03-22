@@ -1,50 +1,6 @@
 
 export const SimpliFactoryABI = [
 	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": false,
-				"internalType": "string",
-				"name": "name",
-				"type": "string"
-			},
-			{
-				"indexed": false,
-				"internalType": "string",
-				"name": "symbol",
-				"type": "string"
-			},
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "contractAddress",
-				"type": "address"
-			}
-		],
-		"name": "NewERC20TokenCreated",
-		"type": "event"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": false,
-				"internalType": "address",
-				"name": "admin",
-				"type": "address"
-			},
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "timelockControllerAddress",
-				"type": "address"
-			}
-		],
-		"name": "NewTimelockControllerCreated",
-		"type": "event"
-	},
-	{
 		"inputs": [
 			{
 				"internalType": "uint256",
@@ -111,6 +67,50 @@ export const SimpliFactoryABI = [
 		],
 		"stateMutability": "nonpayable",
 		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "symbol",
+				"type": "string"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "contractAddress",
+				"type": "address"
+			}
+		],
+		"name": "NewERC20TokenCreated",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "admin",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "timelockControllerAddress",
+				"type": "address"
+			}
+		],
+		"name": "NewTimelockControllerCreated",
+		"type": "event"
 	}
 ]
 
@@ -128,6 +128,12 @@ export const SimpliFactory2ABI = [
 				"indexed": true,
 				"internalType": "address",
 				"name": "governorAddress",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "admin",
 				"type": "address"
 			}
 		],
@@ -149,6 +155,11 @@ export const SimpliFactory2ABI = [
 			{
 				"internalType": "contract TimelockController",
 				"name": "timelockAddr",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "admin",
 				"type": "address"
 			}
 		],

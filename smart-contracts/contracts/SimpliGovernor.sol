@@ -25,15 +25,17 @@ contract SimpliGovernor is
     GovernorTimelockControl,
     Ownable
 {
-    constructor(string memory daoName, IVotes _token, TimelockController _timelock)
+    constructor(string memory daoName, IVotes _token, TimelockController _timelock, address admin)
         Governor(daoName)
         GovernorVotes(_token)
         GovernorVotesQuorumFraction(10)
         GovernorTimelockControl(_timelock)
-    {}
+    {
+        transferOwnership(admin);
+    }
 
     uint256 private DEFAULT_proposalThreshold = 1e18;
-    uint256 private DEFAULT_votingPeriod = 4;
+    uint256 private DEFAULT_votingPeriod = 40;
 
     function votingDelay() public pure override returns (uint256) {
         return 1; // 1 block

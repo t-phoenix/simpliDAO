@@ -1,0 +1,14 @@
+.function-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    margin: 24px;
+    padding: 24px;
+    width: 40%;
+    height: 40vh;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    border-radius: 16px;
+}

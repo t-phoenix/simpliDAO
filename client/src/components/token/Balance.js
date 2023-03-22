@@ -6,20 +6,20 @@ import { readContract } from "@wagmi/core";
 import { toETHdenomination } from "../../helper/formatter";
 
 
-export default function Balance({token}){
+export default function Balance({ token }) {
     const [tokenAddr, setTokenAddr] = React.useState();
     const [userAddr, setUserAddr] = React.useState('');
     const [result, setResult] = React.useState('');
     console.log("Inside Delegation Component", token)
-    
-    
-    useEffect(()=>{
-        if(token){
+
+
+    useEffect(() => {
+        if (token) {
             setTokenAddr(token.tokenAddr);
         }
-    },[])
+    }, [])
 
-    async function HandleGetBalance(){
+    async function HandleGetBalance() {
         console.log("-->", tokenAddr, userAddr)
 
         const data = await readContract({
@@ -28,35 +28,53 @@ export default function Balance({token}){
             functionName: 'balanceOf',
             args: [userAddr]
         })
-       
-        
+
+
         console.log("AFTRE Balance ATTEMPT:", data, toETHdenomination(Number(data)));
         setResult(toETHdenomination(Number(data)));
-    }  
+    }
+
+    async function HandleGetVotes() {
+        console.log("-->", tokenAddr, userAddr)
+
+        const data = await readContract({
+            address: tokenAddr,
+            abi: ERC20TokenABI,
+            functionName: 'getVotes',
+            args: [userAddr]
+        })
+        console.log("Fetch Voting Power ATTEMPT:", data, toETHdenomination(Number(data)));
+        setResult(Number(toETHdenomination(data)));
+    }
 
     return (
         <div className="formContainer">
             <form className="formInputs">
-                <h4>Balance of User</h4>
-                <FormField 
+                <h4>Balance/Votes of User</h4>
+                <FormField
                     labelName="Token"
                     placeholder="address"
                     inputType="text"
                     value={tokenAddr}
-                    handleChange={(e)=> setTokenAddr(e.target.value)}
+                    handleChange={(e) => setTokenAddr(e.target.value)}
                 />
-                <FormField 
+                <FormField
                     labelName="User"
                     placeholder="address"
                     inputType="text"
                     value={userAddr}
                     handleChange={(e) => setUserAddr(e.target.value)}
-                />                
+                />
             </form>
 
-            <button onClick={HandleGetBalance}>
+            <div style={{width: '60%', display: 'flex', flexDirection: 'row', justifyContent: 'space-around', marginBlock: '12px'}}>
+                <button onClick={HandleGetBalance}>
                     Get Balance
-            </button>
+                </button>
+                <button onClick={HandleGetVotes}>
+                    Get Votes
+                </button>
+            </div>
 
             <div>
                 {result && <p>Result: {result}</p>}
