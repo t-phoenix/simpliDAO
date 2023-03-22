@@ -10,7 +10,7 @@ export default function ProposalList({ daoData }) {
     const provider = getProvider();
     const { state } = useLocation();
     const navigate = useNavigate();
-    console.log("Propsal List DATA: ", daoData, "state", state);
+    // console.log("Propsal List DATA: ", daoData, "state", state);
     const daoContract = new ethers.Contract(state.daoAddr, SimpliGovernorABI, provider);
 
 
@@ -27,14 +27,14 @@ export default function ProposalList({ daoData }) {
 
         for (let index = 0; index < proposalCreatedEvent.length; index++) {
             const createEvent = proposalCreatedEvent[index];
-            // console.log("Proposal Create Event:", createEvent)
+            console.log("Proposal Create Event:", createEvent)
             const propState = await readContract({
                 address: state.daoAddr,
                 abi: SimpliGovernorABI,
                 functionName: 'state',
                 args: [String(createEvent.args.proposalId)]
             })
-            console.log("Proposal STATE:", propState)
+            // console.log("Proposal STATE:", propState)
             proposalList.push({
                 key: index,
                 proposalId: String(createEvent.args.proposalId),
@@ -46,7 +46,7 @@ export default function ProposalList({ daoData }) {
                 votingEndDate: Number(createEvent.args.endBlock),
                 proposalState: propState,
                 targets: createEvent.args.targets,
-                //values: createEvent.args.values,
+                values: createEvent.args[3],
                 callDatas: createEvent.args.calldatas
             })
         }
@@ -63,7 +63,7 @@ export default function ProposalList({ daoData }) {
     return (
         <>
         { proposals == [] ? <div>No Proposals Detected</div> : 
-        <div className='cards-container'>
+        <div className='proposal-list'>
 
             {proposals.map((proposal) =>
                 <div key={proposal.key} className='token-card' >

@@ -12,3 +12,10 @@
     border-color: black;
     border-radius: 16px;
 }
+
+.proposal-list {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    align-items: center;
+}

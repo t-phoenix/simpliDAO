@@ -37,6 +37,7 @@ export default function CreateScreen() {
                     <ul className="ulStyle">Deploy YourERC20 Token Contract</ul>
                     <ul className="ulStyle">Deploy Timelock to be used for Governor</ul>
                     <ul className="ulStyle">Deploy Governor Contract which acts as DAO</ul>
+                    <ul className="ulStyle">Grant PROPOSER_ROLE to your Governance contract (usually denoted by dao)</ul>
                     <ul className="ulStyle">Configure contract settings to use best practises</ul>
                     <ul className="ulStyle">Use crowdsale contract from DAO to raise funds in initital rounds</ul>
                 </div>

@@ -2,8 +2,10 @@ import { ethers } from "ethers";
 import React from "react"
 import { useLocation } from "react-router-dom"
 import { useContractRead, useContractReads } from "wagmi";
+import { prepareWriteContract, readContract, writeContract } from "@wagmi/core";
 import { ERC20TokenABI } from "../ContractABIs/ERC20TokenABI";
 import { SimpliGovernorABI } from "../ContractABIs/GovernorABI";
+import { toETHdenomination } from "../helper/formatter";
 
 export default function ProposalDetails() {
 
@@ -13,6 +15,11 @@ export default function ProposalDetails() {
     const tokenInterface = new ethers.utils.Interface(ERC20TokenABI);
     const decodeData = tokenInterface.decodeFunctionData('transfer', state.proposal.callDatas[0])
     console.log("Decoded Data:", decodeData);
+
+    const governor = ({
+        address: state.daoAddr,
+        abi: SimpliGovernorABI
+    })
 
     const { data, isError, isLoading } = useContractReads({
         contracts: [
@@ -33,14 +40,66 @@ export default function ProposalDetails() {
 
     console.log("Proposal Votes:", data);
 
-    function handleVote(votePref) {
+    async function handleVote(votePref) {
         if (votePref == 0) {
-            console.log("Vote for Proposal");
+            console.log("Vote FOR Proposal");
+            const config = await prepareWriteContract({
+                ...governor,
+                functionName: 'castVote',
+                args: [state.proposal.proposalId, 0]
+            })
+    
+            const data = await writeContract(config)
+            console.log("After Granting Role:", data);
+
         } else if (votePref == 1) {
             console.log("Vote against proposal");
+            const config = await prepareWriteContract({
+                ...governor,
+                functionName: 'castVote',
+                args: [state.proposal.proposalId, 1]
+            })
+    
+            const data = await writeContract(config)
+            console.log("After Granting Role:", data);
+
         } else if (votePref == 2) {
             console.log("Vote abstain proposal")
+            const config = await prepareWriteContract({
+                ...governor,
+                functionName: 'castVote',
+                args: [state.proposal.proposalId, 1]
+            })
+    
+            const data = await writeContract(config)
+            console.log("After Granting Role:", data);
         }
+    }
+
+    async function queueProposal(){
+        const descriptionHash = ethers.utils.id(state.proposal.description)
+        console.log("PROP QUEUE:",  state.proposal.description, descriptionHash)
+
+        const config = await prepareWriteContract({
+            ...governor,
+            functionName: 'queue',
+            args: [state.proposal.targets, state.proposal.values, state.proposal.callDatas, descriptionHash]
+        })
+
+        const data = await writeContract(config)
+        console.log("After Queuing Proposal:", data);
+    }
+
+    async function executeProposal(){
+        const descriptionHash = ethers.utils.id(state.proposal.description)
+        const config = await prepareWriteContract({
+            ...governor,
+            functionName: 'execute',
+            args: [state.proposal.targets, state.proposal.values, state.proposal.callDatas, descriptionHash]
+        })
+
+        const data = await writeContract(config)
+        console.log("After Executing Proposal:", data);
     }
 
     return (
@@ -68,9 +127,9 @@ export default function ProposalDetails() {
                     <p>Voting Start (block): {state.proposal.votingStartDate}</p>
                     <p>Voting End (block): {state.proposal.votingEndDate}</p>
                     {data && <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-around', width: '70%' }}>
-                        <p>Votes For: {Number(data[0].forVotes)}</p>
-                        <p>Votes Against: {Number(data[0].againstVotes)}</p>
-                        <p>Votes Abstain: {Number(data[0].abstainVotes)}</p>
+                        <p>Votes For: {toETHdenomination(Number(data[0].forVotes))}</p>
+                        <p>Votes Against: {toETHdenomination(Number(data[0].againstVotes))}</p>
+                        <p>Votes Abstain: {toETHdenomination(Number(data[0].abstainVotes))}</p>
                     </div>}
 
                     <p>Decoded Data: (for simple proposal)</p>
@@ -80,27 +139,31 @@ export default function ProposalDetails() {
                 </div>
 
             </div>
-            {state.proposal.proposalState == 1 ? <div style={{ marginBlock: '2%', width: '50%', display: 'flex', flexDirection: 'row', justifyContent: 'space-around' }}>
+            {state.proposal.proposalState == 1 ? <div >
+                
+                <div style={{ marginBlock: '2%', width: '90%', display: 'flex', flexDirection: 'row', justifyContent: 'space-around' }}>
                 <button onClick={() => handleVote(0)}>
-                    For
+                    Against
                 </button>
                 <button onClick={() => handleVote(1)}>
-                    Against
+                    For
                 </button>
                 <button onClick={() => handleVote(2)}>
                     Abstain
                 </button>
+                </div>
+                <p style={{fontSize: '12px'}}>Check your voting power on token Screen before voting.</p>
 
             </div> : <div></div>}
             {state.proposal.proposalState == 2 ? <div><h3>Proposal Cancelled</h3></div>: <div></div> }
             {state.proposal.proposalState == 3 ? <div><h3>Proposal Defeated</h3></div>: <div></div> }
             {state.proposal.proposalState == 4 ? <div>
                 <p>Proposal Succeded</p>
-                <button>Queue</button>
+                <button style={{marginTop: '15px', marginBottom: '25px'}} onClick={queueProposal}>Queue</button>
             </div> :<div></div> }
             {state.proposal.proposalState == 5 ? <div>
                 <p>Proposal Queued</p>
-                <button>Execute</button>
+                <button style={{marginTop: '15px', marginBottom: '25px'}} onClick={executeProposal}>Execute</button>
             </div> :<div></div> }
             {state.proposal.proposalState == 6 ? <div><h3>Proposal Expired</h3></div>: <div></div> }
             {state.proposal.proposalState == 7 ? <div><h3>Proposal Executed</h3></div>: <div></div> }
