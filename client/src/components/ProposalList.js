@@ -55,30 +55,36 @@ export default function ProposalList({ daoData }) {
     }
 
 
-    function handleProposalCard(proposal){
-        navigate(`/proposal-details/:${proposal.proposalId}`, {state: {...state, proposal}})
+    function handleProposalCard(proposal) {
+        navigate(`/proposal-details/:${proposal.proposalId}`, { state: { ...state, proposal } })
         // navigate(`/dao-details/${dao.daoAddr}`,{state: dao} )
     }
 
     return (
         <>
-        { proposals == [] ? <div>No Proposals Detected</div> : 
-        <div className='proposal-list'>
+            {proposals == [] ? <div>No Proposals Detected</div> :
+                <div className='proposal-list'>
 
-            {proposals.map((proposal) =>
-                <div key={proposal.key} className='token-card' >
-                    <h4>{proposal.proposalId}</h4>
-                    <p>Description: {proposal.description}</p>
-                    <p>Start: {proposal.votingStartDate}</p>
-                    <p>End: {proposal.votingEndDate}</p> 
-                    <p>Status: {proposal.proposalState}</p>
-                    <button style={{marginLeft: '20px'}} onClick={()=>handleProposalCard(proposal)}>
-                        Details
-                    </button>
-                </div>
-            )}
+                    {proposals.map((proposal) =>
+                        <div key={proposal.key} className='token-card' >
+                            <h4>{proposal.proposalId}</h4>
+                            <p>Description: {proposal.description}</p>
+                            <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%', alignItems: 'end'}}>
+                                <div>
+                                    <p>Start: {proposal.votingStartDate}</p>
+                                    <p>End: {proposal.votingEndDate}</p>
+                                    <p>Status: {proposal.proposalState}</p>
+                                </div>
 
-        </div>}
+
+                                <button style={{ marginLeft: '20px' }} onClick={() => handleProposalCard(proposal)}>
+                                    Details
+                                </button>
+                            </div>
+                        </div>
+                    )}
+
+                </div>}
         </>
     )
 }

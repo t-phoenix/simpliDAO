@@ -25,13 +25,18 @@ export default function ProposalForm() {
     console.log("Check Connected Account:", account.address);
 
     const [proposalForm, setProposalForm] = useState({
+        token: '',
         sendTo: '',
         amount: '',
         description: ''
     });
 
 
-    const token = new ethers.Contract(DAOdata[3], ERC20TokenABI, provider)
+    const token = new ethers.Contract(DAOdata[3], ERC20TokenABI, provider);
+
+    useEffect(()=>{
+        setProposalForm({...proposalForm, token: DAOdata[3]})
+    },[])
     
 
     async function CreateProposalButton() {
@@ -60,8 +65,16 @@ export default function ProposalForm() {
             {/* <h2>DAO Address: {state.daoAddr}</h2> */}
             <form className="formInputs">
 
-                <h3 style={{marginBlock: '8px'}}>DAO Token Expense form</h3>
-                <a href={getLinkedAddress(DAOdata[3])} target="blank" style={{ fontSize: '14px', marginBlock: '8px' }}>{DAOdata[3]}</a>
+                <h3 style={{marginBlock: '24px'}}>DAO Token Expense form</h3>
+                {/* <a href={getLinkedAddress(DAOdata[3])} target="blank" style={{ fontSize: '14px', marginBlock: '8px' }}>{DAOdata[3]}</a> */}
+
+                <FormField
+                    labelName="ERC20 Token"
+                    placeholder="address"
+                    inputType="text"
+                    value={proposalForm.token}
+                    handleChange={(e) => handleFormFieldChange('token', e)}
+                />
 
                 <FormField
                     labelName="Receiver"
@@ -89,7 +102,7 @@ export default function ProposalForm() {
                 />
 
 
-                <p style={{width: '100%'}}> Make sure you have enough delegated voting power to create proposal. Use Token Screen to delegate votes based on token balance.</p>
+                <p align='left' style={{width: '100%'}}> Make sure you have enough delegated voting power to create proposal. Use Token Screen to delegate votes based on token balance.</p>
 
 
 

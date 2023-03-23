@@ -19,7 +19,8 @@
     width: 40%;
     padding: 16px;
     border-width: 2px;
-    border-color: rgb(92, 67, 67);
+    border-color: #272e2e;
+    background-color: #272e2e;
     border-radius: 16px;
 
 }

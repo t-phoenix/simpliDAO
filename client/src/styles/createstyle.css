@@ -8,8 +8,10 @@
     width: 40%;
     height: 80%;
     border-style: solid;
+    border-color: #272e2e;
+    background-color: #272e2e;
     border-width: 2px;
-    border-color: rgb(92, 67, 67);
+    /* border-color: rgb(92, 67, 67); */
     border-radius: 16px;
 }
 

@@ -17,6 +17,7 @@ import DAODetails from './pages/DAODetails';
 import CreateProposal from './pages/CreateProposal';
 import ProposalDetails from './pages/ProposalDetails';
 import DAOSettings from './pages/DAOSettings';
+import UseCases from './pages/UseCases';
 
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
           <Route path="/create" element={<CreateScreen />} />
           <Route path="/token" element={<TokenScreen />} />
           <Route path="/transaction" element={<TxnScreen/>}/>
+          <Route path="/cases" element={<UseCases />} />
         </Routes>
       </div>
 

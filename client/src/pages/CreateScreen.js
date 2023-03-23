@@ -18,7 +18,9 @@ export default function CreateScreen() {
     // const components = ComponentFromABI(abi);
     return (
         <div >
-            <h1> DASHBOARD screen</h1>
+            <h1 style={{marginBlock: '10px'}}>Simpli Forms</h1>
+            <h3 style={{marginBottom: '40px'}}>Deploying your smart-contracts easily with Simpli Factories. </h3>
+            
             <p>Factory1 Contract: <a href={fact1Link} target="blank">{factory1}</a></p>
             <p>Factory2 Contract: <a href={fact2Link} target="blank">{factory2}</a></p>
             {/* {components.map((Component, compIndex) => (
@@ -27,19 +29,23 @@ export default function CreateScreen() {
                 </div>
             ))} */}
 
-            <h1>Simpli form</h1>
+            
 
 
 
             <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'start',  marginLeft: '30px',borderStyle: 'solid', borderWidth: '2px', borderColor: '#000000', borderRadius: '16px', padding: '20px'}}>
+                    
                     <h3>Steps to start your DAO</h3>
-                    <ul className="ulStyle">Deploy YourERC20 Token Contract</ul>
-                    <ul className="ulStyle">Deploy Timelock to be used for Governor</ul>
-                    <ul className="ulStyle">Deploy Governor Contract which acts as DAO</ul>
-                    <ul className="ulStyle">Grant PROPOSER_ROLE to your Governance contract (usually denoted by dao)</ul>
+                    
+                    <ul className="ulStyle">1. Deploy your ERC20 Token Contract</ul>
+                    <ul className="ulStyle">2. Deploy Timelock to be used for Governor</ul>
+                    <ul className="ulStyle">3. Deploy Governor Contract which acts as DAO</ul>
+                    <ul className="ulStyle">4. Grant PROPOSER_ROLE to your Governance contract (usually denoted by dao) </ul>
                     <ul className="ulStyle">Configure contract settings to use best practises</ul>
-                    <ul className="ulStyle">Use crowdsale contract from DAO to raise funds in initital rounds</ul>
+                    <ul className="ulStyle">Use TimelockContract as DAO Treasury and store funds there</ul>
+                    
+                    
                 </div>
                 <TokenForm />
                 <GovernorForm />

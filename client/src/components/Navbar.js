@@ -10,11 +10,18 @@ import { ConnectButton } from '@rainbow-me/rainbowkit';
 export default function Navbar(){
     return(
         <div className='navbar'>
+            
             <div className='title-container'>
-                <h3 className='title'>SimpliDAO</h3>
+                <p></p>
+                <h1 className='title'>SimpliDAO</h1>
                 <p className='icon-title'>by EquiLabs</p>
             </div>
-            <Web3Button />
+            <div>
+                <p></p>
+                <Web3Button />
+
+            </div>
+            
             {/* <ConnectButton/> */}
         </div>
     )

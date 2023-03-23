@@ -39,7 +39,7 @@ root.render(
       </BrowserRouter>
     </WagmiConfig>
 
-    <Web3Modal projectId={projectId} ethereumClient={ethereumClient} />
+    <Web3Modal projectId={projectId} ethereumClient={ethereumClient} themeVariables={{'--w3m-accent-color': '#9bfb97', '--w3m-accent-fill-color': '#A23615' }}/>
 
   </React.StrictMode>
 );

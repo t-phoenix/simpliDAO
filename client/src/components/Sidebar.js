@@ -26,10 +26,13 @@ export default function Sideabar() {
     const [isActive, setIsActive] = useState('dashboard');
     return (
         <div className='sidebar'>
-            <p></p>
+            <div className='logo-box'>
             <Link to="/">
-                <Icon styles="w-[10px] h-[10px] bg-[#2c2f32]" imgUrl={mylogo} />
+                <Icon imgUrl={mylogo} />
             </Link>
+
+            </div>
+            
 
             <p></p>
 

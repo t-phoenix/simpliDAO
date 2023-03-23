@@ -46,7 +46,7 @@ export default function DAODetails() {
                     <h2>{state.daoName}</h2>
                     <p>Address: <a href={getLinkedAddress(state.daoAddr)} target="blank" style={{ fontSize: '14px' }}>{state.daoAddr}</a></p>
                     <p>Token: <a href={getLinkedAddress(data[3])} target="blank" style={{ fontSize: '14px' }}>{data[3]}</a></p>
-                    <p>Timelock: <a href={getLinkedAddress(data[4])} target="blank" style={{ fontSize: '14px' }}>{data[4]}</a></p>
+                    <p>Timelock: <a href={getLinkedAddress(data[4])} target="blank" style={{ fontSize: '14px' }}>{data[4]}</a> (check your Treasury on explorer)</p>
                 </div>
                 <div>
                     <div style={{width: '70%', display: 'flex', flexDirection: 'row', justifyContent:'space-evenly'}}>

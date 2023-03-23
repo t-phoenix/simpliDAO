@@ -52,7 +52,7 @@ export default function Threshold() {
             />
             <p align='left' style={{fontSize: '12px', marginBlock: '8px'}}>Based on absolute number: If you have total supply of 2000 tokens only and want to set proposal creation threshold to 40% (800 token) then you need to set Prop threshold to 800000000000000000000 (800 * 10**18) </p>
 
-            <button style={{marginBlock: '15px'}} onClick={handleUpdateVoting}>
+            <button onClick={handleUpdateVoting}>
                 Update Threshold
             </button>
 

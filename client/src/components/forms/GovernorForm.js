@@ -6,12 +6,12 @@ import '../../styles/createstyle.css';
 import { useAccount, usePrepareContractWrite, useContractWrite } from 'wagmi';
 
 
-export default function GovernorForm(){
-    
+export default function GovernorForm() {
+
 
 
     // const factory2 = "0x5eCAa778B2E7352d83a51148aFB38e1890951192";
-    const {address} = useAccount();
+    const { address } = useAccount();
 
 
     const [governorForm, setGovernorForm] = useState({
@@ -21,11 +21,11 @@ export default function GovernorForm(){
         admin: ''
     });
 
-    useEffect(()=>{
-        if(address){
-            setGovernorForm({...governorForm, admin: address});
+    useEffect(() => {
+        if (address) {
+            setGovernorForm({ ...governorForm, admin: address });
         }
-    },[])
+    }, [])
 
 
 
@@ -35,7 +35,7 @@ export default function GovernorForm(){
         address: Factory2_Addr,
         abi: SimpliFactory2ABI,
         functionName: "createGovernor",
-        args: [governorForm.daoName , governorForm.tokenAddr, governorForm.timelockAddr, governorForm.admin]
+        args: [governorForm.daoName, governorForm.tokenAddr, governorForm.timelockAddr, governorForm.admin]
     })
     const { data, isLoading, isSuccess, write } = useContractWrite(config)
 
@@ -55,45 +55,45 @@ export default function GovernorForm(){
     }
     return (
         <form onSubmit={createSimpliDAO} className="formStyle">
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'start', marginLeft: '15px' }}>
-                    <h3> Governor Inputs (Manual)</h3>
-                    <FormField
-                        labelName="DAO Name"
-                        placeholder="name"
-                        inputType="text"
-                        value={governorForm.daoName}
-                        handleChange={(e) => handleFormFieldChange('daoName', e)}
-                    />
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'start', marginLeft: '15px' }}>
+                <h3> Governor Inputs (Manual)</h3>
+                <FormField
+                    labelName="DAO Name"
+                    placeholder="name"
+                    inputType="text"
+                    value={governorForm.daoName}
+                    handleChange={(e) => handleFormFieldChange('daoName', e)}
+                />
 
-                    <FormField
-                        labelName="Token"
-                        placeholder="address"
-                        inputType="text"
-                        value={governorForm.tokenAddr}
-                        handleChange={(e) => handleFormFieldChange('tokenAddr', e)}
-                    />
+                <FormField
+                    labelName="Token"
+                    placeholder="address"
+                    inputType="text"
+                    value={governorForm.tokenAddr}
+                    handleChange={(e) => handleFormFieldChange('tokenAddr', e)}
+                />
 
-                    <FormField
-                        labelName="Timelock"
-                        placeholder="address"
-                        inputType="text"
-                        value={governorForm.timelockAddr}
-                        handleChange={(e) => handleFormFieldChange('timelockAddr', e)}
-                    />
+                <FormField
+                    labelName="Timelock"
+                    placeholder="address"
+                    inputType="text"
+                    value={governorForm.timelockAddr}
+                    handleChange={(e) => handleFormFieldChange('timelockAddr', e)}
+                />
 
-                    <FormField
-                        labelName="Admin "
-                        placeholder="address"
-                        inputType="text"
-                        value={governorForm.admin}
-                        handleChange={(e) => handleFormFieldChange('admin', e)}
-                    />
+                <FormField
+                    labelName="Admin "
+                    placeholder="address"
+                    inputType="text"
+                    value={governorForm.admin}
+                    handleChange={(e) => handleFormFieldChange('admin', e)}
+                />
 
-                </div>
+            </div>
 
-                <button type="submit" className="createButton">
-                    Create Simpli DAO
-                </button>
-            </form>
+            <button type="submit" className="createButton">
+                Create Simpli DAO
+            </button>
+        </form>
     )
 }
