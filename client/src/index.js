@@ -31,7 +31,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const w3mTheme = {
   '--w3m-accent-color': '#9bfb97',
-  '--w3m-accent-fill-color': '#A23615',
+  '--w3m-accent-fill-color': '#272e2e',
   '--w3m-logo-image-url': mylogo,
   '--w3m-background-color': '#9bfb97',
   '--w3m-container-border-radius': '20px',
