@@ -20,8 +20,8 @@ export default function Threshold() {
         functionName: 'proposalThreshold'
     })
 
-    async function handleUpdateVoting(){
-        const config  = await prepareWriteContract({
+    async function handleUpdateVoting() {
+        const config = await prepareWriteContract({
             address: state.daoAddr,
             abi: SimpliGovernorABI,
             functionName: 'setProposalThreshold',
@@ -39,7 +39,7 @@ export default function Threshold() {
             <h4>Proposal Threshold</h4>
             <p>only owner can change proposal Threshold.</p>
             {!isLoading && <div>
-                <p>Proposal Threshold { toETHdenomination(Number(data))}</p>
+                <p>Proposal Threshold {toETHdenomination(Number(data))}</p>
             </div>}
             {isError && <p>Could not fetch Voting Period</p>}
 
@@ -50,11 +50,14 @@ export default function Threshold() {
                 value={propThreshold}
                 handleChange={(e) => setPropThreshold(e.target.value)}
             />
-            <p align='left' style={{fontSize: '12px', marginBlock: '8px'}}>Based on absolute number: If you have total supply of 2000 tokens only and want to set proposal creation threshold to 40% (800 token) then you need to set Prop threshold to 800000000000000000000 (800 * 10**18) </p>
+            <p align='left' style={{ fontSize: '12px', marginBlock: '8px' }}>Based on absolute number: If you have total supply of 2000 tokens only and want to set proposal creation threshold to 40% (800 token) then you need to set Prop threshold to 800000000000000000000 (800 * 10**18) </p>
 
-            <button onClick={handleUpdateVoting}>
-                Update Threshold
-            </button>
+
+            <div style={{ width: '90%', display: 'flex', flexDirection: 'row', justifyContent: 'center', marginTop: '5px', marginBottom: '0px' }}>
+                <button onClick={handleUpdateVoting}>
+                    Update Threshold
+                </button>
+            </div>
 
             <p align='left'>Result: {String(txnResult)}</p>
         </div>

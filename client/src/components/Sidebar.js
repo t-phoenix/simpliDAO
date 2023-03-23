@@ -27,9 +27,9 @@ export default function Sideabar() {
     return (
         <div className='sidebar'>
             <div className='logo-box'>
-            <Link to="/">
-                <Icon imgUrl={mylogo} />
-            </Link>
+                <Link to="/">
+                    <Icon imgUrl={mylogo} />
+                </Link>
 
             </div>
             

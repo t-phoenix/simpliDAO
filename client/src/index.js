@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-
+import mylogo from './assets/mylogo.svg';
 import { EthereumClient, w3mConnectors, w3mProvider } from '@web3modal/ethereum'
 import { Web3Modal } from '@web3modal/react'
 import { configureChains, createClient, WagmiConfig } from 'wagmi'
@@ -29,6 +29,16 @@ const ethereumClient = new EthereumClient(wagmiClient, chains)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
+const w3mTheme = {
+  '--w3m-accent-color': '#9bfb97',
+  '--w3m-accent-fill-color': '#A23615',
+  '--w3m-logo-image-url': mylogo,
+  '--w3m-background-color': '#9bfb97',
+  '--w3m-container-border-radius': '20px',
+  '--w3m-button-border-radius': '20px'
+
+}
+
 
 root.render(
   <React.StrictMode>
@@ -39,7 +49,7 @@ root.render(
       </BrowserRouter>
     </WagmiConfig>
 
-    <Web3Modal projectId={projectId} ethereumClient={ethereumClient} themeVariables={{'--w3m-accent-color': '#9bfb97', '--w3m-accent-fill-color': '#A23615' }}/>
+    <Web3Modal projectId={projectId} ethereumClient={ethereumClient} themeVariables={w3mTheme} />
 
   </React.StrictMode>
 );

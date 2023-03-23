@@ -67,7 +67,7 @@ export default function ProposalList({ daoData }) {
 
                     {proposals.map((proposal) =>
                         <div key={proposal.key} className='token-card' >
-                            <h4>{proposal.proposalId}</h4>
+                            <h4>Proposal Number: {proposal.key+1}</h4>
                             <p>Description: {proposal.description}</p>
                             <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%', alignItems: 'end'}}>
                                 <div>
