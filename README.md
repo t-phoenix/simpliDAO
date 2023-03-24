@@ -11,15 +11,6 @@ Start your DAO with your friends or partners and progress your DAO with more rea
 5. Use other opesource EVM protocols to enhance your DAO experience. 
 
 
-## Future. 🔮
-The tools suite need more features to enrich the seemless DAO Tools Suite experience.
-1. Crowdsale mechanisms
-2. Secondary Market Making
-3. Decentralised Communication 
-4. Decentralised Job Board
-5. Payment Tools
-
-
 ## Smart-Contracts.📜
 1. ERC20 token with Voting capabilities.
 2. OpenZeppelin Governor with Timelock Controller to operate your DAO.
@@ -38,7 +29,17 @@ The tools suite need more features to enrich the seemless DAO Tools Suite experi
 - Metamask
 
 
-## Code Repository
+## Code Repository 👩‍💻
 1. client: This is a React based dapp. 
 2. smart-contract: Contain the source code for Simpli DAO backend, deployed on Polygon-testnet and optimism-testnet.
+
 Further instructions to install and run the code can be found in respective repo README files.
+
+
+## Future. 🔮
+The tools suite need more features to enrich the seemless DAO Tools Suite experience.
+1. Crowdsale mechanisms
+2. Secondary Market Making
+3. Decentralised Communication 
+4. Decentralised Job Board
+5. Payment Tools
