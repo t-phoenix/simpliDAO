@@ -47,7 +47,7 @@ function App() {
           <Route path="/create" element={<CreateScreen />} />
           <Route path="/token" element={<TokenScreen />} />
           <Route path="/transaction" element={<TxnScreen/>}/>
-          <Route path="/cases" element={<UseCases />} />
+          <Route path="/learn" element={<UseCases />} />
         </Routes>
       </div>
 

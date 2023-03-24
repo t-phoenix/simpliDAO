@@ -24,9 +24,9 @@ export default function Home() {
             <div className='sub-content home-content'>
                 <p>We help you create your Decentralised Autonomous Organisations in easy steps and help your friends Join your DAO Journey with simple interface. </p>
                 <p>Now critical World problems can be solved using DAO mechanism, <br /> by operating the organisations which needs transparency and decentralisation at its core.</p>
-                <p>Climate, poverty, finance, media, donations and more such problems can now be solved with higher degree of efficiency <br /> with the help of Blockchain, crypto-assets, smart-contracts, and Equistart.  </p>
+                <p>Climate, poverty, finance, media, donations and more such problems can now be solved with higher degree of efficiency <br /> with the help of Blockchain, crypto-assets, smart-contracts, and SimpliDAO.  </p>
                 <p>And we at EquiLabs develop simple user friendly tools to bridge the gap between technology and users. </p>
-                <div style={{ width: '100%', marginTop: '40px' }}>
+                <div style={{ width: '100%', marginTop: '40px' }} onClick={()=>{navigate('/learn')}}>
                     <button >Learn More</button>
                 </div>
 

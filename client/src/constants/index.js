@@ -24,9 +24,9 @@ export const navlinks = [
   },
 
   {
-    name: 'Use',
+    name: 'Learn',
     imgUrl: profile,
-    link: '/cases',
+    link: '/learn',
   },
 
   // {

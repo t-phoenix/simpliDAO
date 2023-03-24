@@ -8,13 +8,15 @@ import mylogo from './assets/mylogo.svg';
 import { EthereumClient, w3mConnectors, w3mProvider } from '@web3modal/ethereum'
 import { Web3Modal } from '@web3modal/react'
 import { configureChains, createClient, WagmiConfig } from 'wagmi'
-import { goerli, mainnet, polygonMumbai, optimismGoerli, polygon, optimism } from 'wagmi/chains'
+import { polygonMumbai, optimismGoerli } from 'wagmi/chains'
 
 
 
 
 
-const chains = [mainnet, goerli, polygonMumbai, optimismGoerli, polygon, optimism]
+//const chains = [mainnet, goerli, polygonMumbai, optimismGoerli, polygon, optimism]
+const chains = [polygonMumbai, optimismGoerli]
+
 const projectId = 'e8c0411f89c933ea0d0a53571d544509'
 
 

@@ -12,6 +12,8 @@ export default function DAOexplorer() {
     const factory2 = new ethers.Contract(Factory2_Addr, SimpliFactory2ABI, provider);
     const navigate = useNavigate()
 
+    console.log("DAOS LENGTH:", daos.length == 0)
+
     useEffect(() => {
         fetchDAOContracts();
 
@@ -68,20 +70,26 @@ export default function DAOexplorer() {
             </div>
             <p>Factory2 Contract: <a href={fact2Link} target="blank">{Factory2_Addr}</a></p>
 
-            <div>
-                { daos.map((dao) => (
-                    // <div key={}>{JSON.stringify(token)}</div>
-                    <div key={dao.daoAddr} className="content-container" >
-                        <h3>{dao.daoName}: <a href={getLinkedAddress(dao.daoAddr)} target="blank" style={{ fontSize: '14px' }}>{dao.daoAddr}</a></h3>
-                        <p>Created At: <a href={getLinkedAddress(dao.creationTrxn)} target="blank" style={{ fontSize: '14px' }}>{dao.creationTrxn}</a></p>
-                        <button onClick={() => handleDAOCard(dao)}>
-                            Join DAO
-                        </button>
-                    </div>
-                ))}
+            {daos.length == 0 ? <div>
+                <h2>Connect Wallet</h2>
+                <h3>Supported testnets: polygon-mumbai</h3>
+                <p>Refresh if still does not fetch DAO List</p>
+            </div> :               
+                <div>
+                    {daos.map((dao) => (
+                        // <div key={}>{JSON.stringify(token)}</div>
+                        <div key={dao.daoAddr} className="content-container" >
+                            <h3>{dao.daoName}: <a href={getLinkedAddress(dao.daoAddr)} target="blank" style={{ fontSize: '14px' }}>{dao.daoAddr}</a></h3>
+                            <p>Created At: <a href={getLinkedAddress(dao.creationTrxn)} target="blank" style={{ fontSize: '14px' }}>{dao.creationTrxn}</a></p>
+                            <button onClick={() => handleDAOCard(dao)}>
+                                Join DAO
+                            </button>
+                        </div>
+                    ))}
 
 
-            </div>
+                </div>
+            }
 
 
 

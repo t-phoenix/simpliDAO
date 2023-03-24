@@ -23,7 +23,7 @@ export default function TxnScreen() {
 
 
     function fetchCreatedContracts() {
-        
+
         let tokenEventFilter = factory1.filters.NewERC20TokenCreated();
         factory1.queryFilter(tokenEventFilter).then((myevents) => {
             // console.log("My Events", myevents);
@@ -53,7 +53,7 @@ export default function TxnScreen() {
                 const singleEvent = timelockEvents[index];
 
                 let obj = {
-                    timelockAdmin: singleEvent.args.admin, 
+                    timelockAdmin: singleEvent.args.admin,
                     timelockAddr: singleEvent.args.timelockControllerAddress,
                     creationTrxn: singleEvent.transactionHash
                 }
@@ -65,15 +65,15 @@ export default function TxnScreen() {
         })
     }
 
-    
+
 
     function getLinkedAddress(address) {
         return `https://mumbai.polygonscan.com/address/${address}`
     }
 
-    function handleTokenCard(token){
+    function handleTokenCard(token) {
         console.log("TOken Card NAme:", token.tokenName)
-        navigate('/token', {state: token})
+        navigate('/token', { state: token })
     }
 
 
@@ -85,9 +85,9 @@ export default function TxnScreen() {
                     <h1>Factory1 Contract Transactions</h1>
                     <p>Factory1 Contract: <a href={fact1Link} target="blank">{Factory1_Addr}</a></p>
                 </div>
-                <button style={{marginBlock: '40px'}} onClick={fetchCreatedContracts}>Refresh</button>
+                <button style={{ marginBlock: '40px' }} onClick={fetchCreatedContracts}>Refresh</button>
             </div>
-            
+
 
             <div style={{ display: 'flex', flexDirection: 'row' }}>
                 <div className="list-container">
@@ -95,16 +95,18 @@ export default function TxnScreen() {
                         <h3>ERC20 Tokens</h3>
                         <p>List of tokens Created Using Simpli Protocol. Create your's <button onClick={() => navigate('/create')} >here</button></p>
                         <p>You can import the token in metamask, for simple transfer functions, or head onto token Screen for advance features used by Simpli Protocol to be used with Governor for tracking voting power</p>
+                        {tokens.length == 0 && <div><h2>Connect Wallet</h2> <h2>Testnet Supported: ploygon-mumbai</h2></div>}
+
                     </div>
-                    <div style={{overflow: 'scroll'}}>
-                    {tokens.map((token) => (
-                        // <div key={}>{JSON.stringify(token)}</div>
-                        <div key={token.tokenAddr} className="content-container">
-                            <h3>{token.tokenName}({token.tokenSymbol}): <a href={getLinkedAddress(token.tokenAddr)} target="blank" style={{ fontSize: '14px' }}>{token.tokenAddr}</a></h3>
-                            <p>Created At: <a href={getLinkedAddress(token.creationTrxn)} target="blank" style={{ fontSize: '14px' }}>{token.creationTrxn}</a></p>
-                            <button onClick={()=>handleTokenCard(token)}>Token Functions</button>
-                        </div>
-                    ))}
+                    <div style={{ overflow: 'scroll' }}>
+                        {tokens.map((token) => (
+                            // <div key={}>{JSON.stringify(token)}</div>
+                            <div key={token.tokenAddr} className="content-container">
+                                <h3>{token.tokenName}({token.tokenSymbol}): <a href={getLinkedAddress(token.tokenAddr)} target="blank" style={{ fontSize: '14px' }}>{token.tokenAddr}</a></h3>
+                                <p>Created At: <a href={getLinkedAddress(token.creationTrxn)} target="blank" style={{ fontSize: '14px' }}>{token.creationTrxn}</a></p>
+                                <button onClick={() => handleTokenCard(token)}>Token Functions</button>
+                            </div>
+                        ))}
                     </div>
                 </div>
                 <div className="list-container">
@@ -112,6 +114,8 @@ export default function TxnScreen() {
                         <h3>Timelock Controllers</h3>
                         <p>Deployed for Governor Contract</p>
                         <p>Contract to be used with Governor for DAO and functions will be accessible on DAO Interface.</p>
+                        {timelocks.length == 0 && <div><h2>Connect Wallet</h2> <h2>Testnet Supported: ploygon-mumbai</h2></div>}
+
                     </div>
                     {timelocks.map((timelock) => (
                         // <div key={}>{JSON.stringify(token)}</div>
