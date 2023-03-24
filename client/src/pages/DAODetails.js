@@ -72,8 +72,13 @@ export default function DAODetails() {
                 <p>Timelock Contract Acts as Treasury for your DAO. Send funds to timelock controller contract address of your DAO.</p>
                 <p>Native ETH is not supported, so you can always use WETH to manage your DAO Treasury</p>
             </div>
-            <h2>All Proposals</h2>
-            {data && <ProposalList daoData={data} />}
+            <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around'}}>
+            <h2 style={{marginInline: '10px'}}>All Proposals</h2>
+            
+            </div>
+            
+            {isLoading && <h2>Loading ...</h2>}
+            {data && <ProposalList daoData={data} /> }
         </div>}
         </div>
     );

@@ -61,7 +61,7 @@ export default function DAOexplorer() {
             <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '80%' }}>
                 <div >
                     <h1>DAO Explorer</h1>
-                    <p>All DAO created with Simpli Protocol are listed here. Create your's <button onClick={() => navigate('/create')} >now</button> or Join DAO below</p>
+                    <p>All DAO created with Simpli Protocol are listed here. Create your <button onClick={() => navigate('/create')}>DAO</button> or Join DAOs below</p>
                     <p>Owners can renounce their ownerships after configuring initial parameters so that DAO is considered to be prone to Creator centralisation.</p>
                 </div>
                 <button style={{ height: '40px', marginBlock: '40px' }} onClick={fetchDAOContracts}>Refresh</button>

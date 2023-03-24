@@ -3,7 +3,7 @@ import '../styles/contentstyle.css';
 export default function UseCases() {
     return (
         <div>
-            <h2>Learn DAOs</h2>
+            <h2>Learn About DAOs</h2>
             <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
                 <div className="learn-container">
                     <h3>What is a DAO?</h3>
