@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.19+commit.7dd6d404"
+		"version": "0.8.18+commit.87f61d96"
 	},
 	"language": "Solidity",
 	"output": {
@@ -824,7 +824,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"ERC20Token.sol": "ERC20Token"
+			"contracts/ERC20Token.sol": "ERC20Token"
 		},
 		"evmVersion": "paris",
 		"libraries": {},
@@ -833,7 +833,7 @@
 		},
 		"optimizer": {
 			"enabled": true,
-			"runs": 2000
+			"runs": 200
 		},
 		"remappings": []
 	},
@@ -966,12 +966,12 @@
 				"dweb:/ipfs/QmNNCeng6d5eRPDn6tkWSQhjE39XWfQEfjA63rRwHmr1iH"
 			]
 		},
-		"ERC20Token.sol": {
-			"keccak256": "0x5aeea56bfa6b77aeb76164231a13d98cc7fc5278d5f978d14170c3e0e66324d6",
+		"contracts/ERC20Token.sol": {
+			"keccak256": "0xeda8225b4a34f63f289fb6d4e874d60db9e98c181f6c76515212582199e5c74e",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://2438add6bf3c8ab9e3e57771db116153610362330e94a10746284d4c51a12476",
-				"dweb:/ipfs/QmVjVskjAECNeBPW9ZvYYxdsMBqNhBxfJRY5NFxZTARhfp"
+				"bzz-raw://1f345a8452885fe34ac07a2eeca4d3cf8d04e383268bfa70192132ec8d95def4",
+				"dweb:/ipfs/QmSw4bZG2E66kQtQxyLHzWS3QdvpMPed4R5Vuroj3qZYym"
 			]
 		}
 	},

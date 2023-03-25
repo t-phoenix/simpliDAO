@@ -23,7 +23,6 @@ contract ERC20Token is ERC20, ERC20Permit, ERC20Votes, Ownable, ERC20Burnable {
         address owner
     ) ERC20(name, symbol) ERC20Permit(name) {
         _mint(owner, supply * 10 ** decimals());
-        transferOwnership(owner);
     }
 
     function mint(address to, uint256 amount) public onlyOwner {
