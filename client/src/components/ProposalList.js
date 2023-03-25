@@ -4,6 +4,7 @@ import { getProvider, readContract } from "@wagmi/core";
 import { ethers } from 'ethers';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { SimpliGovernorABI } from '../ContractABIs/GovernorABI';
+import '../styles/proposalstyle.css';
 
 
 export default function ProposalList({ daoData }) {
@@ -66,7 +67,7 @@ export default function ProposalList({ daoData }) {
                 <div className='proposal-list'>
 
                     {proposals.map((proposal) =>
-                        <div key={proposal.key} className='token-card' >
+                        <div key={proposal.key} className='proposal-card' >
                             <h4>Proposal Number: {proposal.key+1}</h4>
                             <p>Description: {proposal.description}</p>
                             <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%', alignItems: 'end'}}>

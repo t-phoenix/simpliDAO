@@ -24,3 +24,21 @@
     border-radius: 16px;
 
 }
+
+.proposal-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    margin: 12px;
+    padding: 12px;
+    width: 25%;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #272e2e;
+    background-color: #272e2e;
+    border-radius: 16px;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
