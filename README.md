@@ -50,3 +50,5 @@ The tools suite need more features to enrich the seemless DAO Tools Suite experi
 3. Decentralised Communication 
 4. Decentralised Job Board
 5. Payment Tools
+
+## Live Demo: [Simpli DAO](https://vercel.com/t-phoenix/simpli-dao)
