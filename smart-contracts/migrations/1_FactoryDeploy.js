@@ -1,7 +1,5 @@
 
-const Factory1 = artifacts.require("SimpliERC20")
-const Factory2 = artifacts.require("SimpleTimeLock")
-const Factory3 = artifacts.require("SimpliFactory2")
+const Factory1 = artifacts.require("SimpliFactory.sol")
 // const Factory2 = artifacts.require("SimpliFactory2.sol")
 
 
@@ -19,18 +17,8 @@ const Factory3 = artifacts.require("SimpliFactory2")
 // const RATE = 1;
  module.exports = function (deployer) {
   deployer.deploy(Factory1).then((result)=>{
-    // console.log("Simply Factory1 deployed:", result )
+    console.log("Simply Factory1 deployed:", result )
   }).catch((e)=>{
     console.log("Error while deploying ERC contract:", e);
   })
-  deployer.deploy(Factory2).then((result)=>{
-    // console.log("Simply Factory2 deployed:", result )
-  }).catch((e)=>{
-    console.log("Error while deploying Timelock contract:", e);
-  })
-  // deployer.deploy(Factory3).then((result)=>{
-  //   // console.log("Simply Factory1 deployed:", result )
-  // }).catch((e)=>{
-  //   console.log("Error while deploying ERC contract:", e);
-  // })
 };
