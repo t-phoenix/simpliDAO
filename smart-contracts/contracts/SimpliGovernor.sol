@@ -25,19 +25,17 @@ contract SimpliGovernor is
     GovernorTimelockControl,
     Ownable
 {
-    uint256 private DEFAULT_proposalThreshold = 1e18;
-    uint256 private DEFAULT_votingPeriod = 4;
-
-    constructor(
-        string memory daoName,
-        IVotes _token,
-        TimelockController _timelock
-    )
+    constructor(string memory daoName, IVotes _token, TimelockController _timelock, address admin)
         Governor(daoName)
         GovernorVotes(_token)
         GovernorVotesQuorumFraction(10)
         GovernorTimelockControl(_timelock)
-    {}
+    {
+        transferOwnership(admin);
+    }
+
+    uint256 private DEFAULT_proposalThreshold = 1e18;
+    uint256 private DEFAULT_votingPeriod = 40;
 
     function votingDelay() public pure override returns (uint256) {
         return 1; // 1 block
@@ -73,9 +71,7 @@ contract SimpliGovernor is
     // }
     // The following functions are overrides required by Solidity.
 
-    function quorum(
-        uint256 blockNumber
-    )
+    function quorum(uint256 blockNumber)
         public
         view
         override(IGovernor, GovernorVotesQuorumFraction)
@@ -84,9 +80,7 @@ contract SimpliGovernor is
         return super.quorum(blockNumber);
     }
 
-    function state(
-        uint256 proposalId
-    )
+    function state(uint256 proposalId)
         public
         view
         override(Governor, GovernorTimelockControl)
@@ -132,9 +126,12 @@ contract SimpliGovernor is
         return super._executor();
     }
 
-    function supportsInterface(
-        bytes4 interfaceId
-    ) public view override(Governor, GovernorTimelockControl) returns (bool) {
+    function supportsInterface(bytes4 interfaceId)
+        public
+        view
+        override(Governor, GovernorTimelockControl)
+        returns (bool)
+    {
         return super.supportsInterface(interfaceId);
     }
 }

@@ -6,15 +6,19 @@ import "./SimpliGovernor.sol";
 import "@openzeppelin/contracts/governance/TimelockController.sol";
 
 contract SimpliFactory2 {
-    event NewGovernorCreated(string daoName, address indexed governorAddress);
+    event NewGovernorCreated(string daoName, address indexed governorAddress, address admin);
 
     function createGovernor(
         string memory daoName,
         ERC20Token tokenAddr,
-        TimelockController timelockAddr
+        TimelockController timelockAddr,
+        address admin
     ) external returns (address) {
-        SimpliGovernor governor = new SimpliGovernor(daoName, tokenAddr, timelockAddr);
-        emit NewGovernorCreated(daoName,address(governor));
+        SimpliGovernor governor = new SimpliGovernor(daoName, tokenAddr, timelockAddr, admin);
+        emit NewGovernorCreated(daoName,address(governor), admin);
         return address(governor);
     }
+
+
+
 }
